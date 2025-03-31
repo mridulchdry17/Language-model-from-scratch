@@ -3,17 +3,17 @@ import pickle
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-# ✅ Load the trained LSTM model
+# Load the trained LSTM model
 model = load_model("models/email_lm.h5")  
 
-# ✅ Load word mappings
+# Load word mappings
 with open("data/processed_data.pkl", "rb") as f:
     _, _, word_to_idx = pickle.load(f)
 
-# ✅ Create index-to-word mapping
+# Create index-to-word mapping
 idx_to_word = {v: k for k, v in word_to_idx.items()}
 
-# ✅ Define the text generation function
+# Define the text generation function
 def generate_text(model, word_to_idx, seed_text, max_words=12):
     """
     Generates text using the trained LSTM model.
@@ -45,7 +45,7 @@ def generate_text(model, word_to_idx, seed_text, max_words=12):
 
     return seed_text
 
-# ✅ Example usage
+# Example usage
 seed_text = "Good Morning "
 generated_text = generate_text(model, word_to_idx, seed_text)
 print("Generated Text:", generated_text)
