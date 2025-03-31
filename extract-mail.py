@@ -3,10 +3,10 @@ import imaplib
 import email
 from email.header import decode_header
 
-# ✅ Get current directory and ensure "data/" exists inside the project folder
+# Get current directory and ensure "data/" exists inside the project folder
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get script's directory
 DATA_DIR = os.path.join(BASE_DIR, "data")  # Ensure "data/" is inside project
-os.makedirs(DATA_DIR, exist_ok=True)  # ✅ Create "data/" if it doesn't exist
+os.makedirs(DATA_DIR, exist_ok=True)  # Create "data/" if it doesn't exist
 
 # Connect to Gmail
 mail = imaplib.IMAP4_SSL("imap.gmail.com")
@@ -45,7 +45,7 @@ for email_id in email_ids[:100]:  # Limit to 100 emails
 
             emails.append(subject + "\n" + body)
 
-# ✅ Save emails to "data/emails.txt" INSIDE the project folder
+# Save emails to "data/emails.txt" INSIDE the project folder
 emails_file_path = os.path.join(DATA_DIR, "emails.txt")
 with open(emails_file_path, "w", encoding="utf-8") as f:
     f.write("\n\n".join(emails))
