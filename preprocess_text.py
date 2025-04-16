@@ -7,13 +7,13 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 def preprocess_data():
     # Get the absolute path to "data/" inside the project folder
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))  
-    DATA_DIR = os.path.abspath(os.path.join(BASE_DIR, "data"))  # FIX: Remove "../data"
+    DATA_DIR = os.path.abspath(os.path.join(BASE_DIR, "data"))  
 
     # Ensure "data/" exists
     os.makedirs(DATA_DIR, exist_ok=True)  
 
     # Load emails from the correct "data/emails.txt"
-    emails_file_path = os.path.join(DATA_DIR, "emails.txt")  # FIX: Ensure correct path
+    emails_file_path = os.path.join(DATA_DIR, "emails.txt")  
 
     # Check if `emails.txt` exists
     if not os.path.exists(emails_file_path):
